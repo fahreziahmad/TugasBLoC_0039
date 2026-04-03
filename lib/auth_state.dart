@@ -16,3 +16,15 @@ class AuthAuthenticated extends AuthState {
   @override
   List<Object?> get props => [email];
 }
+
+class AuthRegistered extends AuthState {}
+class AuthUnauthenticated extends AuthState {}
+
+class AuthError extends AuthState {
+  final String message;
+
+  AuthError({required this.message});
+
+  @override
+  List<Object?> get props => [message];
+}
