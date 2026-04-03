@@ -48,3 +48,52 @@ class DetailOrderPage extends StatelessWidget {
       ),
     );
   }
+
+   @override
+  Widget build(BuildContext context) {
+    return MainLayout(
+      title: 'Order Summary',
+      showAppBar: true,
+      child: Container(
+        color: MainLayout.backgroundColor,
+        child: ScrollConfiguration(
+          behavior: ScrollBehavior().copyWith(overscroll: false),
+          child: SingleChildScrollView(
+            physics: AlwaysScrollableScrollPhysics(
+              parent: ClampingScrollPhysics(),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(24.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.green.withValues(alpha: 0.1),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      Icons.check_circle_rounded,
+                      color: Colors.green,
+                      size: 80,
+                    ),
+                  ),
+                  SizedBox(height: 24),
+                  Text(
+                    'Order Successful!',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: MainLayout.textTitleColor,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Text(
+                    'Here are your order details',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: MainLayout.textTitleColor,
+                    ),
+                  ),
+                  SizedBox(height: 40),
