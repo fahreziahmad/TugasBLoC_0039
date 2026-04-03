@@ -8,3 +8,12 @@ class DetailOrderPage extends StatelessWidget {
   final int jumlahMakanan;
   final int jumlahMinuman;
   final int totalHarga;
+
+    const DetailOrderPage({
+    required this.makanan,
+    required this.minuman,
+    required this.jumlahMakanan,
+    required this.jumlahMinuman,
+    required this.totalHarga,
+    super.key,
+  });
