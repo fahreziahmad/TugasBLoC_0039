@@ -54,3 +54,59 @@ class _HomePageState extends State<HomePage> {
           tooltip: 'Logout',
         ),
       ],
+       child: SingleChildScrollView(
+        controller: ScrollController(),
+        child: Container(
+          color: MainLayout.backgroundColor,
+          width: double.infinity,
+          child: Padding(
+            padding: EdgeInsets.all(24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              "Hello, User!",
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                color: MainLayout.textSubtitleColor,
+                              ),
+                            ),
+                            SizedBox(height: 8),
+                            Icon(
+                              Icons.waving_hand_rounded,
+                              color: MainLayout.accentYellow,
+                              size: 24,
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          "What do you want to order today?",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: MainLayout.textSubtitleColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                CircleAvatar(
+                  radius: 24,
+                  backgroundColor: MainLayout.primaryColor.withValues(alpha: 0.1),
+                  child: Icon(
+                    Icons.person,
+                    color: MainLayout.primaryColor,
+                    size: 28,
+                  ),
+                ),
+                SizedBox(height: 32),
