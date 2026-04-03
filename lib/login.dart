@@ -166,3 +166,88 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           ),
                         ),
+                         const SizedBox(height: 24),
+                        BlocBuilder<AuthBloc, AuthState>(
+                          builder: (context, state) {
+                            final isLoading = state is AuthLoading;
+                            return SizedBox(
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                onPressed: isLoading
+                                    ? null
+                                    : () {
+                                        if (_formKey.currentState!.validate()) {
+                                          context.read<AuthBloc>().add(
+                                            LoginSubmitted(
+                                              email: emailController.text,
+                                              password: passwordController.text,
+                                            ),
+                                          );
+                                        }
+                                      },
+                                style: ElevatedButton.styleFrom(
+                                  padding: const EdgeInsets.symmetric(vertical: 18),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(16),
+                                  ),
+                                  backgroundColor: MainLayout.primaryColor,
+                                  foregroundColor: Colors.white,
+                                ),
+                                child: isLoading
+                                    ? const SizedBox(
+                                        width: 20,
+                                        height: 20,
+                                        child: CircularProgressIndicator(
+                                          strokeWidth: 2,
+                                          color: Colors.white,
+                                        ),
+                                      )
+                                    : const Text(
+                                        'Login',
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          letterSpacing: 1,
+                                        ),
+                                      ),
+                              ),
+                            );
+                          },
+                        ),
+                        const SizedBox(height: 24),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "Don't have an account?",
+                              style: TextStyle(
+                                color: MainLayout.textSubtitleColor,
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => const RegisterPage(),
+                                  ),
+                                );
+                              },
+                              child: const Text(
+                                'Sign Up',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+    );
+  }
+}
