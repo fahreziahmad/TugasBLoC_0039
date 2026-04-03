@@ -97,3 +97,46 @@ class DetailOrderPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 40),
+
+                   Container(
+                    padding: EdgeInsets.all(24),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(24),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.08),
+                          blurRadius: 20,
+                          offset: Offset(0, 8),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Text(
+                            'RECEIPT',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 2.0,
+                              color: MainLayout.labelColor,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 16),
+                        Divider(
+                          thickness: 1,
+                          color: MainLayout.inputBorderColor,
+                        ),
+                        SizedBox(height: 16),
+
+                        Text(
+                          "Food Details",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: MainLayout.accentOrange,
+                          ),
+                        ),
