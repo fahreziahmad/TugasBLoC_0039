@@ -17,3 +17,34 @@ class DetailOrderPage extends StatelessWidget {
     required this.totalHarga,
     super.key,
   });
+
+   Widget _buildReceiptRow(String label, String value, {bool isTotal = false}) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: isTotal ? 18 : 15,
+              fontWeight: isTotal ? FontWeight.bold : FontWeight.w500,
+              color:
+                  isTotal
+                      ? MainLayout.primaryColor
+                      : MainLayout.textSubtitleColor,
+            ),
+          ),
+          Text(
+            value,
+            style: TextStyle(
+              fontSize: isTotal ? 20 : 15,
+              fontWeight: isTotal ? FontWeight.w900 : FontWeight.bold,
+              color:
+                  isTotal ? MainLayout.primaryColor : MainLayout.textTitleColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
