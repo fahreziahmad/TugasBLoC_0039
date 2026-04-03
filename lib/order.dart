@@ -148,4 +148,142 @@ class _OrderPageState extends State<OrderPage> {
                     ),
                   ),
                   SizedBox(height: 24),
+                   Container(
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.05),
+                          blurRadius: 10,
+                          offset: Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.fastfood_rounded,
+                              color: MainLayout.accentOrange,
+                            ),
+                            SizedBox(width: 8),
+                            Text(
+                              "Drink Details",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: MainLayout.textTitleColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 16),
+
+                        _buildInputDecoration(
+                          controller: minumanController,
+                          label: "drink Name",
+                          icon: Icons.lunch_dining_rounded,
+                          errorMessage: "Please enter your drink order",
+                        ),
+                        SizedBox(height: 16),
+
+                        _buildInputDecoration(
+                          controller: jumlahMinumanController,
+                          label: "Quantity (Drink)",
+                          icon: Icons.format_list_numbered_rounded,
+                          errorMessage: "Please enter your drink quantity",
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 48),
+                  BlocListener<OrderBloc, OrderState>(
+                    listener: (context, state) {
+                      if (state is OrderSuccess) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (_) => DetailOrderPage(
+                              makanan: state.makanan,
+                              minuman: state.minuman,
+                              jumlahMakanan: state.jumlahMakanan,
+                              jumlahMinuman: state.jumlahMinuman,
+                              totalHarga: state.totalHarga,
+                            ),
+                          ),
+                        );
+                      }
+                    },
+                    child: BlocBuilder<OrderBloc, OrderState>(
+                      builder: (context, state) {
+                        final isLoading = state is OrderLoading;
+                        return ElevatedButton(
+                          onPressed: isLoading
+                              ? null
+                              : () {
+                                  if (_formKey.currentState!.validate()) {
+                                    context.read<OrderBloc>().add(
+                                      OrderSubmitted(
+                                        makanan: makananController.text,
+                                        minuman: minumanController.text,
+                                        jumlahMakanan:
+                                            int.tryParse(jumlahMakananController.text) ?? 0,
+                                        jumlahMinuman:
+                                            int.tryParse(jumlahMinumanController.text) ?? 0,
+                                      ),
+                                    );
+                                  }
+                                },
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(vertical: 18),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16),
+                            ),
+                            backgroundColor: MainLayout.primaryColor,
+                            foregroundColor: Colors.white,
+                            elevation: 2,
+                            shadowColor: MainLayout.primaryColor.withValues(alpha: 0.5),
+                          ),
+                          child: isLoading
+                              ? const SizedBox(
+                                  width: 22,
+                                  height: 22,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                    color: Colors.white,
+                                  ),
+                                )
+                              : Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons.receipt_long_rounded),
+                                    SizedBox(width: 8),
+                                    Text(
+                                      "Place Order",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        letterSpacing: 1.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                        );
+                      },
+                    ),
+                  ),
+                  SizedBox(height: 24),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
 
