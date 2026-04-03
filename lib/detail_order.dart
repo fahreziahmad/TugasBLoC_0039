@@ -140,3 +140,38 @@ class DetailOrderPage extends StatelessWidget {
                             color: MainLayout.accentOrange,
                           ),
                         ),
+                        SizedBox(height: 8),
+                        _buildReceiptRow("Item Name", makanan),
+                        _buildReceiptRow("Quantity", 'x$jumlahMakanan'),
+
+                        SizedBox(height: 16),
+                        Divider(
+                          thickness: 1,
+                          color: MainLayout.inputBorderColor,
+                        ),
+                        SizedBox(height: 16),
+
+                        Text(
+                          "Drink Details",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        SizedBox(height: 8),
+                        _buildReceiptRow("Item Name", minuman),
+                        _buildReceiptRow("Quantity", 'x$jumlahMinuman'),
+
+                        SizedBox(height: 16),
+                        Divider(thickness: 1.5, color: Colors.black12),
+                        SizedBox(height: 16),
+
+                        _buildReceiptRow(
+                          'Total Price',
+                          'Rp $totalHarga',
+                          isTotal: true,
+                        ),
+                      ],
+                    ),
+                  ),
