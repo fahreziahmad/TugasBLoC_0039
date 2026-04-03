@@ -26,3 +26,38 @@ class _OrderPageState extends State<OrderPage> {
     jumlahMinumanController.dispose();
     super.dispose();
   }
+
+   Widget _buildInputDecoration({
+    required TextEditingController controller,
+    required String label,
+    required IconData icon,
+    TextInputType keyboardType = TextInputType.text,
+    required String errorMessage,
+  }) {
+    return TextFormField(
+      controller: controller,
+      keyboardType: keyboardType,
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: TextStyle(color: MainLayout.labelColor),
+        prefixIcon: Icon(icon, color: MainLayout.primaryColor),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: MainLayout.inputBorderColor),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(color: MainLayout.primaryColor, width: 2),
+        ),
+        filled: true,
+        fillColor: MainLayout.inputFillColor,
+      ),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return errorMessage;
+        }
+        return null;
+      },
+    );
+  }
+
