@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tugas_bloc/login.dart';
-import 'package:tugas_bloc/mainlayout.dart';
+import 'package:tugasbloc_0039/login.dart';
+import 'package:tugasbloc_0039/mainlayout.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});

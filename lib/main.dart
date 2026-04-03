@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tugas_bloc/auth_bloc.dart';
-import 'package:tugas_bloc/home.dart';
-import 'package:tugas_bloc/login.dart';
-import 'package:tugas_bloc/order.dart';
-import 'package:tugas_bloc/order_bloc.dart';
+import 'package:tugasbloc_0039/auth_bloc.dart';
+import 'package:tugasbloc_0039/home.dart';
+import 'package:tugasbloc_0039/login.dart';
+import 'package:tugasbloc_0039/order.dart';
+import 'package:tugasbloc_0039/order_bloc.dart';
 
 void main() {
   runApp(const MyApp());

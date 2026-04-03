@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tugas_bloc/home.dart';
-import 'package:tugas_bloc/mainlayout.dart';
+import 'package:tugasbloc_0039/home.dart';
+import 'package:tugasbloc_0039/mainlayout.dart';
 
 class DetailOrderPage extends StatelessWidget {
   final String makanan;

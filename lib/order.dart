@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tugas_bloc/detail_order.dart';
-import 'package:tugas_bloc/mainlayout.dart';
-import 'package:tugas_bloc/order_bloc.dart';
+import 'package:tugasbloc_0039/detail_order.dart';
+import 'package:tugasbloc_0039/mainlayout.dart';
+import 'package:tugasbloc_0039/order_bloc.dart';
 
 class OrderPage extends StatefulWidget {
   const OrderPage({super.key});

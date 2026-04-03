@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tugas_bloc/auth_bloc.dart';
-import 'package:tugas_bloc/home.dart';
-import 'package:tugas_bloc/mainlayout.dart';
-import 'package:tugas_bloc/register.dart';
+import 'package:tugasbloc_0039/auth_bloc.dart';
+import 'package:tugasbloc_0039/home.dart';
+import 'package:tugasbloc_0039/mainlayout.dart';
+import 'package:tugasbloc_0039/register.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
