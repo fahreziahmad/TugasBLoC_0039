@@ -153,3 +153,42 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       SizedBox(height: 12),
+                       Text(
+                        "Special Discount\nFor Your First Order!",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          height: 1.2,
+                        ),
+                      ),
+                      SizedBox(height: 16),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.white,
+                          foregroundColor: MainLayout.primaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          elevation: 10,
+                        ),
+                        child: Text(
+                          'Claim Now',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 32),
+
+                Text(
+                  'Top Menu',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: MainLayout.textTitleColor,
+                  ),
+                ),
+                SizedBox(height: 16),
